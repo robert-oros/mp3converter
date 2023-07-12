@@ -12,3 +12,7 @@ useful links
 
 - https://www.npmjs.com/package/yt-converter
 - https://www.npmjs.com/package/yt-converter
+
+for parsing body 
+
+- https://www.golinuxcloud.com/express-post-body-data/
