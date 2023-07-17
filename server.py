@@ -1,8 +1,9 @@
-from flask import Flask, render_template, Response
+from flask import Flask, request, jsonify, request, send_file, make_response
 from flask import request, redirect, send_from_directory
 import sqlite3
 import uuid
 import os
+import youtube_dl
 
 
 app = Flask(__name__)
@@ -16,9 +17,48 @@ def send_js(path):
 def send_css(path):
   return send_from_directory("css", path)
 
-@app.route("/", methods=["GET"])
-def home():
-  return render_template("index.html")
+# @app.route("/", methods=["GET"])
+# def home():
+#   return render_template("index.html")
+
+@app.route('/audio', methods=['GET'])
+def download_mp3():
+  url = request.args.get('url')
+  print(url)
+  
+
+  # mp3_file_name = get_mp3(url)
+  
+  # #sending file as response
+  # resp = make_response(
+  #   send_file("./song.mp3", mimetype='audio/wav', as_attachment=True, attachment_filename="audio.mp3"))
+
+  # return resp
+
+# def get_mp3(url):
+#   #gets video information from url
+#   video_info = youtube_dl.YoutubeDL().extract_info(
+#       url, download=False
+#   )
+#   file_name = "song.mp3"
+#   options = {
+#     'format': 'bestaudio/best',
+#     'keepvideo': False,
+#     'outtmpl': file_name,
+#     # conversion
+#     'postprocessors': [{
+#       'key': 'FFmpegExtractAudio',
+#       'preferredcodec': 'mp3',
+#       'preferredquality': '192',
+#     }]
+#   }
+  
+#   #downloads song with above parameters
+#   with youtube_dl.YoutubeDL(options) as download:
+#     download.download([url])
+
+#   return file_name
+
 
 # @app.route("/audio/add", methods=["GET","POST"])
 # def add():
