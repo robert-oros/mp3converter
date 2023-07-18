@@ -42,3 +42,6 @@ So firstly:
   <h3>Mobile</h3>
   <img src="https://user-images.githubusercontent.com/61971053/130527180-3d81e063-ca35-43be-9a65-92094500c9a4.gif" alt="animated" />
 </div
+
+- docker image build -t flask_docker .
+- docker run --publish 8080:8080 flask_docker
