@@ -44,4 +44,4 @@ So firstly:
 </div
 
 - docker image build -t flask_docker .
-- docker run --publish 8080:8080 flask_docker
+- docker run --publish 8080:8000 flask_docker
