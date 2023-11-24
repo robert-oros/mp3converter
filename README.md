@@ -45,3 +45,6 @@ So firstly:
 
 - docker image build -t flask_docker .
 - docker run --publish 8080:8000 flask_docker
+PORT REDIRECTING
+
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
